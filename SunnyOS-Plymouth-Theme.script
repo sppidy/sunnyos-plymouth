@@ -1,0 +1,36 @@
+frame_duration = 0.0833  # Time for each frame (in seconds, ~0.0833s for 120 frames in 10s)
+frame_count = 0          # Counter to track time
+total_frames = 120       # Number of frames (120 frames)
+current_frame_number = 1
+
+# Function to update the frame
+fun video_frame_callback()
+{
+    # Increment the frame count
+    frame_count += 1
+    
+    # Check if it's time to update the frame
+    if (frame_count >= frame_duration * 60)  # Assuming Plymouth's tick rate is ~60Hz
+    {
+        # Reset the frame count and update the frame
+        frame_count = 0
+        
+        # Load the current frame (loop from 1 to 120)
+        wallpaper = Image("frames/frame" + String(current_frame_number, "%04d") + ".png")
+        wallpaper.SetZ(100)
+        
+        # Draw the frame
+        wallpaper.Draw()
+        
+        # Update to the next frame (looping back to 1 after 120)
+        current_frame_number = (current_frame_number % total_frames) + 1
+    }
+    
+    # Set the background color (black)
+    Plymouth.SetBackgroundColor(0.0, 0.0, 0.0)  # Black background
+    Plymouth.Tick()  # Refresh the screen
+}
+
+# Set the refresh function to call video_frame_callback every time
+Plymouth.SetRefreshFunction(video_frame_callback)
+

@@ -1,0 +1,10 @@
+
+[Plymouth Theme]
+Name=SunnyOS-Plymouth-Theme
+Description=official SunnyOS Plymouth Theme
+ModuleName=script
+Comment=SunnyOSOfficial
+
+[script]
+ImageDir=/usr/share/plymouth/themes//SunnyOS-Plymouth-Theme/frames
+ScriptFile=/usr/share/plymouth/themes//SunnyOS-Plymouth-Theme/SunnyOS-Plymouth-Theme.script
