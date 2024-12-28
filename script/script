@@ -1,0 +1,9 @@
+
+wallpaper = Image.Directory("frames");
+wallpaper.SetZ(100);
+
+loop {
+    wallpaper.Draw();
+    Plymouth.SetBackgroundColor(0.0, 0.0, 0.0); # Black background
+    Plymouth.Tick();
+}
